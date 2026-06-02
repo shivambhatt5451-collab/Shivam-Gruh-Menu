@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Snacks</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f5f5;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #ff3d00, #ff6d00);
+  color: white;
+  padding: 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+/* CATEGORY BAR */
+.categories {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  overflow-x: auto;
+  background: white;
+}
+
+.cat-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+.cat-btn.active {
+  background: #ff3d00;
+  color: white;
+}
+
+/* SECTION */
+.section {
+  display: none;
+  padding: 15px;
+}
+
+.section.active {
+  display: block;
+}
+
+.section h2 {
+  margin-bottom: 10px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.price {
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h3>SHIVAM GRUH UDHYOG 🍘</h3>
+  <p>Karelibaug , Vadodara</p>
+</div>
+
+<div class="categories">
+  <button class="cat-btn active" onclick="showMenu('papdi', this)">Papdi</button>
+  <button class="cat-btn" onclick="showMenu('sev', this)">Sev</button>
+  <button class="cat-btn" onclick="showMenu('vadiyo', this)">Vadiyo</button>
+  <button class="cat-btn" onclick="showMenu('chakri', this)">Chakri</button>
+  <button class="cat-btn" onclick="showMenu('wafer', this)">Wafer</button>
+</div>
+
+<!-- PAPDI -->
+<div class="section active" id="papdi">
+<h2>Papdi</h2>
+<div class="card"><h3>Chokhani Papdi</h3><div class="price">₹160 / KG</div></div>
+<div class="card"><h3>Krushna Kamod Papdi</h3><div class="price">₹250 / KG</div></div>
+<div class="card"><h3>Juvar Papdi</h3><div class="price">₹180 / KG</div></div>
+<div class="card"><h3>Makai Papdi</h3><div class="price">₹180 / KG</div></div>
+<div class="card"><h3>Mix Lot Papdi</h3><div class="price">₹180 / KG</div></div>
+<div class="card"><h3>Lasan Papdi</h3><div class="price">₹230 / KG</div></div>
+<div class="card"><h3>Krushna Kamod Lasan Papdi</h3><div class="price">₹280 / KG</div></div>
+<div class="card"><h3>Mori Papdi</h3><div class="price">₹160 / KG</div></div>
+</div>
+
+<!-- SEV -->
+<div class="section" id="sev">
+<h2>Sev</h2>
+<div class="card"><h3>Chokhani Sev</h3><div class="price">₹160 / KG</div></div>
+<div class="card"><h3>Krushna Kamod Sev</h3><div class="price">₹250 / KG</div></div>
+<div class="card"><h3>Lasan ni Sev</h3><div class="price">₹230 / KG</div></div>
+</div>
+
+<!-- VADIYO -->
+<div class="section" id="vadiyo">
+<h2>Vadiyo</h2>
+<div class="card"><h3>Chokhani Vadiyo</h3><div class="price">₹350 / KG</div></div>
+</div>
+
+<!-- CHAKRI -->
+<div class="section" id="chakri">
+<h2>Chakri</h2>
+<div class="card"><h3>Sabudana Chakri / Papdi</h3><div class="price">₹360 / KG</div></div>
+</div>
+
+<!-- WAFER -->
+<div class="section" id="wafer">
+<h2>Wafer</h2>
+<div class="card"><h3>Bataka Wafer / Chhin</h3><div class="price">₹530 / KG</div></div>
+</div>
+
+<!-- ✅ WHATSAPP BUTTON -->
+<a id="waBtn" class="whatsapp-btn" target="_blank">📲 Order on WhatsApp</a>
+
+<script>
+function showMenu(menuId, btn) {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(menuId).classList.add('active');
+
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// 👉 PUT YOUR NUMBER HERE
+let phoneNumber = "9173087222";
+
+let message = "Hello! I want to order from Shivam Gruh Udhyog 🍘";
+
+document.getElementById("waBtn").href =
+  "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+</script>
+
+</body>
+</html>
